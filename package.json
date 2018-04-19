@@ -10,9 +10,10 @@
     "build": "cross-env NODE_ENV=product webpack --progress --profile --colors"
   },
   "dependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "cross-env": "~3.2.3",
     "css-loader": "^0.28.11",
-    "vue": "^2.1.0",
+    "vue": "^2.5.16",
     "vue-html-loader": "^1.2.4",
     "vue-loader": "^10.3.0",
     "vue-router": "^2.1.1",

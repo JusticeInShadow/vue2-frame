@@ -90,10 +90,28 @@ const modules = () => ({
     rules: [
         {
             test: /\.vue$/,
-            loader: 'vue-loader'
+            loader: 'vue-loader',
+            options:{
+                loaders:{
+                    js:[
+                        {
+                            loader: 'babel-loader',
+                            options: {
+                                babelrc: true,
+                                presets: ['es2015',"stage-0"],
+                                plugins: [
+                                    'transform-runtime',
+                                    'syntax-async-functions',
+                                    'syntax-decorators',
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
         },
         {
-            test: /\.js?$/,                                //正则匹配js文件
+            test: /\.(js)?$/,                                //正则匹配js文件
             exclude: /node_modules/,                       //正则忽略打包文件
             use: [
                 {
@@ -104,7 +122,7 @@ const modules = () => ({
                         plugins: [
                             'transform-runtime',
                             'syntax-async-functions',
-                            'syntax-decorators'
+                            'syntax-decorators',
                         ]
                     }
                 }

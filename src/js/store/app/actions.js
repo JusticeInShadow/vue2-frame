@@ -8,6 +8,8 @@
 import Type from "./constant";
 
 const appChange = ({commit, state},data)=>{
+    let spead = {a:1,b:2,c:3};
+    let newSpead = {...spead};
     commit(Type.APP_CHANGE,data)
 };
 

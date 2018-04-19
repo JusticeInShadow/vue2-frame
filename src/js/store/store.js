@@ -16,3 +16,5 @@ const store = new Vuex.Store({
         app,
     }
 });
+
+export default store

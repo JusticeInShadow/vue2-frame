@@ -7,10 +7,8 @@
  */
 import Type from "./constant";
 
-Type.APP_CHANGE = (stata,data)=>{
-    state.app = data;
-};
-
 export default {
-    ...Type
+    [Type.APP_CHANGE](state,data){
+        state.app = data;
+    }
 }

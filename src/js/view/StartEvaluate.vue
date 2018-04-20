@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="start-plane">
         开始估价页面
     </div>
 </template>
@@ -10,6 +10,9 @@
     }
 </script>
 
-<style scoped>
-
+<style>
+.start-plane {
+    color:red;
+    text-align: center;
+}
 </style>

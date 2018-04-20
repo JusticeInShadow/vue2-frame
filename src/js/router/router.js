@@ -20,6 +20,7 @@ const routes = [
         name:"Container",
         component:Container,
         children:[
+            {path:"/",redirect:StartEvaluate},        //设置默认路由
             {path:"/startEvaluate",name:"StartEvaluate",component:StartEvaluate},
             {path:"/evaluating",name:"Evaluating",component:Evaluating},
             {path:"/evaluated",name:"Evaluated",component:Evaluated},
@@ -28,5 +29,6 @@ const routes = [
 ];
 
 export default new VueRouter({
+    mode:"hash",                  //默认是hash模式，初学标记清除一点的比较好
     routes
 });

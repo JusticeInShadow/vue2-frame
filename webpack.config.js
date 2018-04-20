@@ -97,7 +97,11 @@ const modules = () => ({
                         {
                             loader: 'babel-loader',
                         }
-                    ]
+                    ],
+                    // css:ExtractTextPlugin.extract({
+                    //     use: 'css-loader',
+                    //     fallback: 'vue-style-loader' // <- 这是vue-loader的依赖，所以如果使用npm3，则不需要显式安装
+                    // })
                 }
             }
         },
@@ -107,24 +111,11 @@ const modules = () => ({
             use: [
                 {
                     loader: 'babel-loader',
-                    options: {
-                        babelrc: true,
-                        presets: ['es2015',"stage-0"],
-                        plugins: [
-                            'transform-runtime',
-                            'syntax-async-functions',
-                            'syntax-decorators',
-                            ["component", {
-                                "libraryName": "element-ui",
-                                "styleLibraryName": "theme-chalk"
-                            }]
-                        ]
-                    }
                 }
             ]
         },
         {
-            test: /\.(less|css)$/,                            //正则匹配css和less文件，less现阶段只存在于antd的css引入
+            test: /\.(css)$/,                                 //正则匹配css
             use: ExtractTextPlugin.extract({                  //配合插件分离css，通过link引入文件，而不是内联
                 use: [
                     {

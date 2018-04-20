@@ -1,5 +1,5 @@
 <template>
-    <el-header>
+    <el-header height="48px">
         hello world!
         {{common.user.username}}
     </el-header>
@@ -36,5 +36,12 @@
 </script>
 
 <style>
-
+.el-header {
+    background-image: linear-gradient(-180deg, #2a4867 6%, #162f48 100%);
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.12), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    height: 56px;
+    line-height: 56px;
+    padding: 0 15px;
+    color: #ffffff;
+}
 </style>

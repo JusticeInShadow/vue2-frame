@@ -7,20 +7,26 @@
  */
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import store from '../store/store';
-import App from "../view/app/app";
+import Container from "../view/Container";
+import StartEvaluate from "../view/StartEvaluate";
+import Evaluating from "../view/Evaluating";
+import Evaluated from "../view/Evaluated";
 
 Vue.use(VueRouter);
 
 const routes = [
-    {path:"",component:App}
+    {
+        path:"",
+        name:"Container",
+        component:Container,
+        children:[
+            {path:"/startEvaluate",name:"StartEvaluate",component:StartEvaluate},
+            {path:"/evaluating",name:"Evaluating",component:Evaluating},
+            {path:"/evaluated",name:"Evaluated",component:Evaluated},
+        ]
+    }
 ];
 
-const router = new VueRouter({
+export default new VueRouter({
     routes
 });
-
-new Vue({
-    router,
-    store,
-}).$mount('#app');

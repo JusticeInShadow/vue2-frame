@@ -1,15 +1,15 @@
 <template>
-    <header>
+    <el-header>
         hello world!
         {{common.user.username}}
-    </header>
+    </el-header>
 </template>
 
 <script>
     import { mapState, mapActions } from 'vuex';
     import {getAxios} from "../utils/AjaxUtils";
     export default {
-        name: "CHeader",
+        name: "MainHeader",
         computed: {
             ...mapState([
                 "common"

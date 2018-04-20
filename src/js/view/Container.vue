@@ -1,19 +1,21 @@
 <template>
-    <div>
-        <CHeader father-component="app"></CHeader>
-        <button @click="changeTitle">修改标签</button>
-    </div>
+    <el-container>
+        <MainHeader father-component="app"></MainHeader>
+        <el-main>
+            <router-view></router-view>
+            <button @click="changeTitle">修改标签</button>
+        </el-main>
+    </el-container>
 </template>
 
 <script>
     import { mapState, mapActions } from 'vuex';
-    import axios from "axios";
-    import {getAxios,ajaxPlatform} from "../../utils/AjaxUtils";
-    import CHeader from "../../component/CHeader";
+    import {getAxios} from "../utils/AjaxUtils";
+    import MainHeader from "./MainHeader";
     export default {
-        name: "app",
+        name: "Container",
         components: {
-            CHeader
+            MainHeader
         },
         data(){
             return {
@@ -36,7 +38,7 @@
             let spead = {a:1,b:2,c:3};
             let newSpead = {...spead};
             try {
-                let user = await getAxios("/user");
+                // let user = await getAxios("/user");
             }catch(e){
                 console.error(e)
             }

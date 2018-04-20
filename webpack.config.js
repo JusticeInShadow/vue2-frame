@@ -21,7 +21,7 @@ console.log("path"+distPath);
 
 const entry = function() {
     return {
-        app:resolve(__dirname, 'src/js/router/router.js')
+        app:resolve(__dirname, 'src/js/main.js')
     }
 };
 
@@ -96,15 +96,6 @@ const modules = () => ({
                     js:[
                         {
                             loader: 'babel-loader',
-                            options: {
-                                babelrc: true,
-                                presets: ['es2015',"stage-0"],
-                                plugins: [
-                                    'transform-runtime',
-                                    'syntax-async-functions',
-                                    'syntax-decorators',
-                                ]
-                            }
                         }
                     ]
                 }
@@ -123,6 +114,10 @@ const modules = () => ({
                             'transform-runtime',
                             'syntax-async-functions',
                             'syntax-decorators',
+                            ["component", {
+                                "libraryName": "element-ui",
+                                "styleLibraryName": "theme-chalk"
+                            }]
                         ]
                     }
                 }

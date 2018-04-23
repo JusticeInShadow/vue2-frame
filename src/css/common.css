@@ -23,9 +23,23 @@ body {
     color: #666;
     background-color: #ffffff;
 }
+
 #app {
     height: 100%;
 }
+
 .el-container.is-vertical{
     height: 100%;
+    background: #ececec;
+}
+
+.layout {
+    width: 1336px;
+    margin: 0 auto;
+}
+
+.clear:after {
+    content: " ";
+    display: block;
+    clear: both;
 }

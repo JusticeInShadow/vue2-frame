@@ -7,7 +7,7 @@
  */
 export default {
     develop:{
-        baseUrl:"https://www.easy-mock.com/mock/5ad856ce8ddd0450275c0d6a"    //测试用
+        baseUrl:"https://www.easy-mock.com/mock/5add47e7adb1f577b50c2437"    //测试用
     },
     test:{
 

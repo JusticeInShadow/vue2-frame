@@ -29,6 +29,7 @@ const output = () => {
     let output = {
         path: resolve(__dirname, distPath),       //输出路径
         filename: 'js/[name].js',                 //生成的js路径和名称配置
+        publicPath: '/'                           //资源引用    ---决定webpack从哪里加载资源和打包后的路径问题
     };
     if (node_env != 'develop') {
         output.path = resolve(__dirname, distPath);
@@ -98,10 +99,10 @@ const modules = () => ({
                             loader: 'babel-loader',
                         }
                     ],
-                    // css:ExtractTextPlugin.extract({
-                    //     use: 'css-loader',
-                    //     fallback: 'vue-style-loader' // <- 这是vue-loader的依赖，所以如果使用npm3，则不需要显式安装
-                    // })
+                    css:ExtractTextPlugin.extract({
+                        use: 'css-loader',
+                        fallback: 'vue-style-loader' // <- 这是vue-loader的依赖，所以如果使用npm3，则不需要显式安装
+                    })
                 }
             }
         },

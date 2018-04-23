@@ -10,6 +10,7 @@ import { Container, Header , Main ,Aside} from 'element-ui';
 import store from './store/store';
 import router from './router/router';
 import "../css/common.css";
+import "../css/fontstyle.css";
 import "./main.css";
 
 //按需加载，引入element-ui的时候要注意，有坑。。。。

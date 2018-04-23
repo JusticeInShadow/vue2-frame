@@ -1,10 +1,9 @@
 <template>
     <el-container direction="vertical">
         <MainHeader father-component="app"></MainHeader>
-        <el-container>
+        <el-container class="layout main-container">
             <el-main>
                 <router-view></router-view>
-
                 <button @click="changeTitle">修改标签</button>
             </el-main>
             <el-aside width="200px">Aside</el-aside>
@@ -52,7 +51,11 @@
 </script>
 
 <style>
-.el-aside {
-    background:#dedede
-}
+    .el-aside {
+        background:#dedede
+    }
+
+    .main-container {
+        background: #ffffff;
+    }
 </style>

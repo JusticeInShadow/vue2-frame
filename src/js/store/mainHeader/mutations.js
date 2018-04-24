@@ -5,10 +5,10 @@
  *
  * Created by peng.xue on 2018/4/18.
  */
-const USER_INFO_CHANGE = "user_info_chage";
-const COMMON_CHANGE = "common_change";
+import Type from "./constant";
 
 export default {
-    USER_INFO_CHANGE,
-    COMMON_CHANGE,
+    [Type.HEAER_SETTING_SHOW_CHANGE](state,flag){
+        state.settingSelectVisible = flag;
+    }
 }

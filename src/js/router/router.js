@@ -14,10 +14,10 @@ import Evaluated from "../view/Evaluated";
 
 Vue.use(VueRouter);
 
+//存在子路由的时候需要移除父路由的name属性。
 const routes = [
     {
         path:"",
-        name:"Container",
         component:Container,
         children:[
             {path:"/",redirect:StartEvaluate},        //设置默认路由
@@ -29,6 +29,6 @@ const routes = [
 ];
 
 export default new VueRouter({
-    mode:"hash",                  //默认是hash模式，初学标记清除一点的比较好
+    mode:"hash",                  //默认是hash模式，初学标记清楚一点的比较好
     routes
 });

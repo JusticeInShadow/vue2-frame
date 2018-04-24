@@ -10,12 +10,12 @@
                 </a>
                 <span>瀚川集团采购估价系统</span>
             </div>
-            <div class="header-setting">
+            <div class="header-setting" v-clickoutside="closeSetting">
                 <div class="setting-view clear">
                     <img :src="common.user.picture_url" alt="">
-                    <i></i>
+                    <i @click="opeSetting"></i>
                 </div>
-                <ul class="setting-list">
+                <ul class="setting-list" v-if="mainHeader.settingSelectVisible">
                     <li class="clear">
                         <p>返回 passport</p>
                         <span class="icon-icon_yg"></span>
@@ -29,34 +29,44 @@
 
 <script>
     import { mapState, mapActions } from 'vuex';
+    import Clickoutside from 'element-ui/src/utils/clickoutside'
     import {getAxios} from "../utils/AjaxUtils";
     export default {
         name: "MainHeader",
+        directives:{
+            Clickoutside
+        },
         data(){
+            //现阶段完全由vuex提供数据，先循规蹈矩点，学习模仿为主，之后再寻求破而后立。
+            //现在写的这个数据是相对静态的，所以以程序里的数据来主导。
           return {
               headerNav:[]
           }
         },
         computed: {
             ...mapState([
-                "common"
+                "common",
+                "mainHeader",
             ]),
         },
         methods:{
+            opeSetting(){
+                //开启或关闭Setting弹窗
+                this.settingSelectShow(true);
+            },
+            closeSetting(){
+                //开启或关闭Setting弹窗
+                this.settingSelectShow(false);
+            },
             ...mapActions([
                 "userInfoChange",
+                "settingSelectShow"
             ])
         },
         created: async function () {
             // `this` 指向 vm 实例
             let spead = {a:1,b:2,c:3};
             let newSpead = {...spead};
-            try {
-                let user = await getAxios("/user");
-                this.userInfoChange(user);
-            }catch(e){
-                console.error(e)
-            }
             console.log(this)
         }
     }

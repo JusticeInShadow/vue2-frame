@@ -5,10 +5,8 @@
  *
  * Created by peng.xue on 2018/4/18.
  */
-const USER_INFO_CHANGE = "user_info_chage";
-const COMMON_CHANGE = "common_change";
+const HEAER_SETTING_SHOW_CHANGE = "header_setting_show_change";
 
 export default {
-    USER_INFO_CHANGE,
-    COMMON_CHANGE,
+    HEAER_SETTING_SHOW_CHANGE,
 }

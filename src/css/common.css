@@ -43,3 +43,25 @@ body {
     display: block;
     clear: both;
 }
+
+.hide {
+    display: none!important;
+}
+
+/*sweetalert弹出框样式修改*/
+.swal-overlay--show-modal .swal-modal {
+    animation: unset;
+}
+.swal-modal{
+    width: 420px;
+}
+.swal-icon:first-child {
+    margin-top: 20px;
+}
+.swal-footer {
+    margin-top: 0;
+    padding: 13px 16px 5px;
+}
+.swal-button {
+    padding: 5px 24px;
+}

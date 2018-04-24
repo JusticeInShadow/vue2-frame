@@ -9,9 +9,7 @@ import mutations from './mutations';
 import actions from './actions';
 
 const state = {
-    user:{},
-    crafts:[],                          //工艺价格列表
-    materials:[]                        //材料价格列表
+    settingSelectVisible:false,
 };
 
 export default {

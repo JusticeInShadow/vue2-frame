@@ -7,15 +7,10 @@
  */
 import Type from "./constant";
 
-const userInfoChange = ({commit, state},obj)=>{
-    commit(Type.USER_INFO_CHANGE,obj)
-};
-
-const commonChange = ({commit, state},obj)=>{
-    commit(Type.COMMON_CHANGE,obj)
+const settingSelectShow = ({commit, state},obj)=>{
+    commit(Type.HEAER_SETTING_SHOW_CHANGE,obj)
 };
 
 export default {
-    userInfoChange,
-    commonChange,
+    settingSelectShow,
 }

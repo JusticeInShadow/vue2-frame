@@ -9,7 +9,10 @@ import mutations from './mutations';
 import actions from './actions';
 
 const state = {
-    app:"hello world",
+    isAsideShow:true,
+    notice:"",
+    navCount:{},
+    choosedNav:-1,
 };
 
 export default {

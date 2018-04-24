@@ -8,16 +8,16 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import common from './common/state';
-import app from "./app/state";
 import mainHeader from "./mainHeader/state";
+import mainAside from "./mainAside/state";
 
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
     modules:{
         common,
-        app,
-        mainHeader
+        mainHeader,
+        mainAside
     }
 });
 

@@ -43,11 +43,19 @@ body {
     display: block;
     clear: both;
 }
-
+/*特殊样式*/
 .hide {
     display: none!important;
 }
-
+.rotate-half {
+    transform: rotate(90deg)!important;
+}
+.rotate {
+    transform: rotate(180deg)!important;
+}
+.rotate-big-half {
+    transform: rotate(270deg)!important;
+}
 /*sweetalert弹出框样式修改*/
 .swal-overlay--show-modal .swal-modal {
     animation: unset;

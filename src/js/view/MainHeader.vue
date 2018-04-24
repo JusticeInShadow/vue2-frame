@@ -2,10 +2,13 @@
     <el-header height="56px" class="main-header clear">
         <div class="layout">
             <div class="header-logo clear">
-                <a>
+                <a @click="backToIndex">
                     <img src="../../images/cg-logo.png">
-                    <ul>
-                        <li></li>
+                    <ul class="loge-nav">
+                        <li class="clear" @click.stop="logoNavChoose(i)" v-for="(item,i) in headerNav">
+                        <i class="icon-icon_ar"></i>
+                        <span>{{item}}</span>
+                        </li>
                     </ul>
                 </a>
                 <span>瀚川集团采购估价系统</span>
@@ -40,7 +43,7 @@
             //现阶段完全由vuex提供数据，先循规蹈矩点，学习模仿为主，之后再寻求破而后立。
             //现在写的这个数据是相对静态的，所以以程序里的数据来主导。
           return {
-              headerNav:[]
+              headerNav:["工艺价格设置","材料价格设置","优先级设置"],
           }
         },
         computed: {
@@ -50,6 +53,12 @@
             ]),
         },
         methods:{
+            backToIndex(){
+                location.hash = "/";
+            },
+            logoNavChoose(i){
+                console.log(`当前的导航索引是${i}`)
+            },
             opeSetting(){
                 //开启或关闭Setting弹窗
                 this.settingSelectShow(true);
@@ -59,7 +68,6 @@
                 this.settingSelectShow(false);
             },
             ...mapActions([
-                "userInfoChange",
                 "settingSelectShow"
             ])
         },
@@ -85,12 +93,54 @@
     }
     .header-logo>a {
         float: left;
+        height: 56px;
+        position: relative;
     }
     .header-logo>a>img {
         height: 30px;
         margin-top: 13px;
         padding-right: 15px;
         border-right: solid 1px #6d8596;
+    }
+    .header-logo>a:hover .loge-nav {
+        display: block;
+    }
+    .loge-nav {
+        display: none;
+        position: absolute;
+        top:56px;
+        z-index: 2;
+        background: #ffffff;
+        border: 2px solid #0069c6;
+        width: 258px;
+        color:#666666;
+        font-size: 16px;
+    }
+    .loge-nav>li {
+        cursor: pointer;
+        position: relative;
+        line-height: 50px;
+    }
+    .loge-nav>li:hover {
+        background: #e4f2ff;
+    }
+    .loge-nav>li:hover>span {
+        color: #0069c6;
+    }
+    .loge-nav>li>i {
+        display: block;
+        position: absolute;
+        top: 20px;
+        left: 15px;
+        font-size: 12px
+    }
+    .loge-nav>li>span {
+        float: right;
+        width: 205px;
+        border-bottom: dashed 1px #dadada;
+    }
+    .loge-nav>li:last-child>span {
+        border-bottom: 0;
     }
     .header-logo>span {
         float: left;
@@ -143,6 +193,7 @@
         box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
         background-clip: padding-box;
         cursor: pointer;
+        z-index: 1;
     }
     .setting-list>li {
         padding: 0 10px 0 11px;

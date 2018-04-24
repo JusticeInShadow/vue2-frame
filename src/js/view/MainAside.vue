@@ -44,7 +44,7 @@
                 }
             },
             evaluatedCount:function () {
-                return this.mainAside.navCount["1"];
+                return this.mainAside.navCount["1"] || 0;
             },
             ...mapState([
                 "common",

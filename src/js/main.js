@@ -6,7 +6,7 @@
  * Created by peng.xue on 2018/4/20.
  */
 import Vue from 'vue';
-import { Container, Header , Main ,Aside,Icon} from 'element-ui';
+import { Container, Header , Main ,Aside,Icon,Button} from 'element-ui';
 import store from './store/store';
 import router from './router/router';
 import "../css/common.css";
@@ -21,6 +21,7 @@ Vue.use(Header);
 Vue.use(Main);
 Vue.use(Aside);
 Vue.use(Icon);
+Vue.use(Button);
 
 //页面正式开始渲染
 const pageRender = ()=>{

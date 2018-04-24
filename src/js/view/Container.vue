@@ -45,5 +45,6 @@
     .main-container {
         background: #ffffff;
         border-right: 1px solid #dedede;
+        position: relative;
     }
 </style>

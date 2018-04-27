@@ -22,6 +22,7 @@ export const getAxios = (url)=>{
             'Content-Type': 'application/json',
             'token': token
         },
+        isFetch:1,
         credentials: 'include',
     };
     return new Promise((resolve, reject)=>{
@@ -53,6 +54,7 @@ export const postAxios = (url, params)=>{
             'Content-Type': 'application/json',
             'token': token
         },
+        isFetch:1,
         credentials: 'include',
         body: JSON.stringify(params)
     };

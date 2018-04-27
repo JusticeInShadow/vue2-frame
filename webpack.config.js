@@ -19,10 +19,19 @@ const pathNodeModules = path.resolve(__dirname, 'node_modules');
 console.log(`本次编译环境是: ${node_env}`);
 console.log("path"+distPath);
 
+//判断是否是开发环境，开发环境启动webpack热加载
+const isNotDev = ()=>{
+    return node_env != "develop"
+};
+
 const entry = function() {
-    return {
+    let entryConfig = {
         app:resolve(__dirname, 'src/js/main.js')
+    };
+    if(!isNotDev()) {
+        entryConfig.app=[entryConfig.app,...['webpack/hot/only-dev-server',"webpack-hot-middleware/client?noInfo=true&reload=true"]]
     }
+    return entryConfig
 };
 
 const output = () => {
@@ -53,6 +62,7 @@ const plugins = () => {
         }),
     ], devPlugins = [
         new ExtractTextPlugin('css/[name].css'),                   //把css单独分离出来的插件，需要和modules配合使用
+        new webpack.HotModuleReplacementPlugin(),
     ], testPlugins = [
         new ExtractTextPlugin('css/[name]_[hash:8].css'),
     ], prodPlugins = [
@@ -156,9 +166,6 @@ function delFiles() {
     del([distPath+"/**/*"],{force:true})
 }
 
-const isNotDev = ()=>{
-    return node_env != "develop"
-};
 if (isNotDev()){
     delFiles();
 }
@@ -169,14 +176,6 @@ let config = {
     plugins: plugins(),
     module: modules(),
     resolve: resolveModules(),
-    devServer: {
-        port: 6002,
-        host: '127.0.0.1',
-        contentBase: distPath+"/html",
-        historyApiFallback: true,
-        open: true,
-        openPage: "",
-    },
     devtool: (node_env === 'develop') ? 'cheap-module-eval-source-map' : 'cheap-module-source-map',   //开发者调试设置
 };
 

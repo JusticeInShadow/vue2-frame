@@ -37,6 +37,7 @@
                     //重新获取侧边合计数
                     let total = await getAxios(`/getSiderTotalAgain?workcode=${user.workcode}`);
                     this.asideNavCountChange(total);
+                    this.$router.push(`/evaluating`);
                 }catch(e){
                     console.error(e);
                     if(typeof e === "string"){

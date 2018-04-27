@@ -5,7 +5,7 @@
   "author": "peng.xue",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=develop webpack-dev-server -d --hot",
+    "dev": "cross-env NODE_ENV=develop webpack",
     "test": "cross-env NODE_ENV=test webpack --progress --profile --colors",
     "build": "cross-env NODE_ENV=product webpack --progress --profile --colors"
   },
@@ -22,7 +22,22 @@
     "vue-loader": "^12.2.2",
     "vue-router": "^2.1.1",
     "vue-style-loader": "^1.0.0",
-    "vuex": "^2.0.0"
+    "vuex": "^2.0.0",
+    "koa": "^2.3.0",
+    "koa-bodyparser": "^3.2.0",
+    "koa-compress": "^2.0.0",
+    "koa-conditional-get": "^2.0.0",
+    "koa-convert": "^1.2.0",
+    "koa-ejs": "^4.1.0",
+    "koa-etag": "^3.0.0",
+    "koa-router": "^7.2.1",
+    "koa-session2": "^2.2.4",
+    "koa-static": "^3.0.0",
+    "koa-static-cache": "^4.1.1",
+    "koa-views": "^5.2.1",
+    "lei-utils": "^3.1.1",
+    "log4js": "^1.0.1",
+    "request-promise": "^4.2.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
@@ -64,10 +79,10 @@
     "vue-style-loader": "^1.0.0",
     "vue-template-compiler": "^2.1.0",
     "webpack": "^2.7.0",
-    "webpack-dev-middleware": "^1.8.3",
     "webpack-dev-server": "^2.4.5",
-    "webpack-hot-middleware": "^2.12.2",
-    "webpack-merge": "^0.14.1"
+    "webpack-merge": "^0.14.1",
+    "webpack-dev-middleware": "^2.0.6",
+    "webpack-hot-middleware": "^2.21.0"
   },
   "engines": {
     "node": ">= 4.0.0",

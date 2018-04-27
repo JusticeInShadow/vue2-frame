@@ -95,7 +95,6 @@
                     tips.error("系统错误，请联系管理员！")
                 }
             }
-            console.log(this);
         }
     }
 </script>

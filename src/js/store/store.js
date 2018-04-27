@@ -10,6 +10,7 @@ import Vuex from 'vuex';
 import common from './common/state';
 import mainHeader from "./mainHeader/state";
 import mainAside from "./mainAside/state";
+import evaluating from "./evaluating/state";
 
 Vue.use(Vuex);
 
@@ -17,7 +18,8 @@ const store = new Vuex.Store({
     modules:{
         common,
         mainHeader,
-        mainAside
+        mainAside,
+        evaluating,
     }
 });
 

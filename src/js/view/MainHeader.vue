@@ -70,12 +70,6 @@
             ...mapActions([
                 "settingSelectShow"
             ])
-        },
-        created: async function () {
-            // `this` 指向 vm 实例
-            let spead = {a:1,b:2,c:3};
-            let newSpead = {...spead};
-            console.log(this)
         }
     }
 </script>

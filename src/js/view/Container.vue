@@ -26,17 +26,13 @@
 
             }
         },
-        computed: mapState({
-            app:state=>state.app,
-        }),
-        methods:{
-            ...mapActions([
-                "appChange",
-            ]),
+        computed: {
+
         },
-        created: async function () {
-            // `this` 指向 vm 实例
-            console.log(this)
+        methods:{
+        },
+        created:function () {
+
         }
     }
 </script>
@@ -46,5 +42,6 @@
         background: #ffffff;
         border-right: 1px solid #dedede;
         position: relative;
+        padding: 0;
     }
 </style>

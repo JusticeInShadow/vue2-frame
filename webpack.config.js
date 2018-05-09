@@ -118,7 +118,7 @@ const modules = () => ({
         },
         {
             test: /\.(js)?$/,                                //正则匹配js文件
-            exclude: /node_modules/,                       //正则忽略打包文件
+            exclude: /node_modules/,                         //正则忽略打包文件
             use: [
                 {
                     loader: 'babel-loader',

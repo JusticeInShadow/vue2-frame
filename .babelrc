@@ -4,6 +4,7 @@
     "transform-runtime",
     "syntax-async-functions",
     "syntax-decorators",
+    "transform-vue-jsx",
     ["component", {
       "libraryName": "element-ui",
       "styleLibraryName": "theme-chalk"

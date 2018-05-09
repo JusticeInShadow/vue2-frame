@@ -6,7 +6,16 @@
  * Created by peng.xue on 2018/4/20.
  */
 import Vue from 'vue';
-import { Container, Header , Main ,Aside,Icon,Button,Table,TableColumn} from 'element-ui';
+import { Container, Header , Main ,Aside,Icon,Button,Table,TableColumn,Input} from 'element-ui';
+//引入ECharts，按需加载
+import ECharts from "vue-echarts/components/ECharts";
+import 'echarts/lib/chart/bar';
+import 'echarts/lib/chart/line';
+import 'echarts/lib/component/tooltip';
+import 'echarts/lib/component/toolbox';
+import 'echarts/lib/component/legend';
+import 'echarts/lib/component/dataZoom';
+
 import store from './store/store';
 import router from './router/router';
 import "../css/common.css";
@@ -14,6 +23,9 @@ import "../css/fontstyle.css";
 import "./main.css";
 import {getAxios} from "./utils/AjaxUtils";
 import {tips} from "./utils/Utils";
+
+//注册echarts
+Vue.component('chart', ECharts);
 
 //按需加载，引入element-ui的时候要注意，有坑。。。。
 Vue.use(Container);
@@ -24,6 +36,7 @@ Vue.use(Icon);
 Vue.use(Button);
 Vue.use(Table);
 Vue.use(TableColumn);
+Vue.use(Input);
 
 //页面正式开始渲染
 const pageRender = ()=>{

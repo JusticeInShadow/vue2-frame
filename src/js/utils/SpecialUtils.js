@@ -9,13 +9,13 @@
 export const formatFilesString = (string) => {
     let files = string.split(",");
     let newFiles = [];
-    if(files.indexOf("PDF")>-1){
+    if(files.indexOf("PDF")>-1 || files.indexOf("pdf")>-1){
         newFiles.push("PDF")
     }
-    if(files.indexOf("SLDDRW")>-1){
+    if(files.indexOf("SLDDRW")>-1 || files.indexOf("slddrw")>-1){
         newFiles.push("SLDDRW")
     }
-    if(files.indexOf("SLDPRT")>-1){
+    if(files.indexOf("SLDPRT")>-1 || files.indexOf("sldprt")>-1){
         newFiles.push("SLDPRT")
     }
     newFiles = newFiles.concat(files);

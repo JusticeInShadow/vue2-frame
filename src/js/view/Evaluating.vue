@@ -31,19 +31,21 @@
                 <div class="evaluate-marks"></div>
                 <div class="evaluate-info-table">
                     <el-table
+                        class="common-table"
                         :data="evaluating.TData"
                         border
                         fit
                         style="width: 100%"
                         @selection-change="handleSelectionChange">
                         <el-table-column type="selection" width="50" align="center"></el-table-column>
-                        <el-table-column prop="date" label="日期" min-width="180" align="center"></el-table-column>
-                        <el-table-column prop="name" label="姓名" min-width="180" align="center"></el-table-column>
-                        <el-table-column prop="address" label="地址" min-width="180" align="center"></el-table-column>
+                        <el-table-column prop="edit" label="状态" min-width="180" align="center" :render-header="columnRender"></el-table-column>
+                        <el-table-column prop="pjzd" label="申请单号" min-width="180" align="center" :render-header="columnRender"></el-table-column>
+                        <el-table-column prop="material_num" label="物料号" min-width="180" align="center" :render-header="columnRender"></el-table-column>
+                        <el-table-column prop="draw_num" label="图号" min-width="180" align="center" :render-header="columnRender"></el-table-column>
+                        <el-table-column prop="draw_num" label="附件" min-width="180" align="center" :render-header="columnRender"></el-table-column>
+                        <el-table-column prop="est_totalPrice_str" label="估价总金额" min-width="180" align="center" :render-header="columnRender"></el-table-column>
+                        <el-table-column prop="create_est_date" label="日期" min-width="180" align="center" :render-header="columnRender"></el-table-column>
                     </el-table>
-                    <ul type="circle">
-                        li*3
-                    </ul>
                 </div>
             </div>
         </div>
@@ -52,7 +54,7 @@
 
 <script>
     import { mapState, mapActions } from 'vuex';
-    import {isEmpty,tips} from "../utils/Utils";
+    import {isEmpty,tips,trim} from "../utils/Utils";
     import {getAxios} from "../utils/AjaxUtils";
     import {getEvaluatingInfo} from "../utils/StorageUtil";
     import {formatFilesString} from "../utils/SpecialUtils";
@@ -67,6 +69,11 @@
                     SLDPRT:"模型图"
                 },
                 multipleSelection:[],
+                searchKeys:{
+                    date:"",
+                    name:"",
+                    address:"",
+                }
             }
         },
         computed:{
@@ -111,6 +118,33 @@
             },
             handleSelectionChange(val){
                 this.multipleSelection = val;
+            },
+            columnRender:function (h, { column,$index}) {
+                let labelName = column.label;
+                return (
+                    <div class="table-thead-td">
+                        <p>
+                            <el-input size="mini"
+                                      value={this.searchKeys[labelName]}
+                                      onChange={val=>this.onSearchInputChange(labelName, val)}
+                                      nativeOnKeydown={e=>this.onSearch(labelName, e)}></el-input>
+                        </p>
+                        <p class="thead-td-text">
+                            {column.label}
+                        </p>
+                    </div>
+                );
+            },
+            onSearchInputChange:function (type,value) {
+                console.log(value);
+                this.searchKeys[type] = trim(value);
+            },
+            onSearch:function (type,e) {
+                console.log(e);
+                let keyCode = e.keyCode;
+                if(keyCode == 13) {
+                    console.log(`呐，我要开始搜索啦！`)
+                }
             },
             ...mapActions([
                 "evaluatingInfoChange",
@@ -223,5 +257,43 @@
     .evaluate-info-table {
         font-size: 14px;
         margin-top: 12px;
+    }
+    /*************************************************表格css***************************************************/
+    .common-table .el-table__empty-text {
+        color: #ff0000;
+    }
+    .common-table th {
+        padding: 0;
+    }
+    .common-table th div {
+        display: block;
+        padding: 0;
+    }
+    .common-table .cell {
+        padding: 0;
+    }
+    .common-table .table-thead-td {
+        color: rgba(0,0,0,0.65);
+    }
+    .common-table .table-thead-td p {
+        height: 50px;
+        line-height: 50px;
+        padding: 0 5px;
+    }
+    .common-table .el-table-column--selection {
+
+    }
+    .common-table .el-table-column--selection .cell {
+        margin-top: 50px;
+        height: 50px;
+        line-height: 50px;
+        background: #f7f7f7;
+        padding: 0!important;
+    }
+    .common-table .table-thead-td .thead-td-text {
+        background: #f7f7f7;
+    }
+    .common-table .table-thead-td p .el-input {
+        line-height: 50px;
     }
 </style>
